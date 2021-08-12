@@ -29,31 +29,35 @@
         <h3 style="text-align: left">Front-End</h3>
         <form id="convertForm" class="border">
           <input type="text" id="convertField" name="input" placeholder="3.1mi" style="width: 200px">
-          <input id="convert" type="submit" value='Convert!'>
+          <input id="convert" type="submit" value='Convert!' onclick="loadData()">
         </form>
         <p id='result'></p>
         <code id='jsonResult'></code>
       </div>
     </section>
     <!-- Your web-app is https, so your scripts need to be too -->
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+    <!-- <script 
+    src="https://code.jquery.com/jquery-2.2.1.min.js"
             integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script> -->
     <script>
-      $(function() {
-        $('#convertForm').submit(function(event) {
-          event.preventDefault();
-          $.ajax({
-            url: '/api/convert',
-            type: 'get',
-            data: $('#convertForm').serialize(),
-            success: function(data) {
-              $('#result').text(data.string || data);
-              $('#jsonResult').text(JSON.stringify(data));
-            }
-          });
-        });
-      });
+      function loadData(){
+        document.getElementById("jsonResult").innerHTML = "{TEST}"
+      }
+      // $(function() {
+      //   $('#convertForm').submit(function(event) {
+      //     event.preventDefault();
+      //     $.ajax({
+      //       url: '/api/convert',
+      //       type: 'get',
+      //       data: $('#convertForm').serialize(),
+      //       success: function(data) {
+      //         $('#result').text(data.string || data);
+      //         $('#jsonResult').text(JSON.stringify(data));
+      //       }
+      //     });
+      //   });
+      // });
    </script>
   </body>
 </html>
