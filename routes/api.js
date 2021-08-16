@@ -18,13 +18,13 @@ module.exports = (app) => {
       var toString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
       //validity check
       if (initNum == 'invalid' && initUnit == 'invalid'){
-        res.send('invalid number and unit')
+        res.json('invalid number and unit')
         return
       }else if (initNum == 'invalid'){
-        res.send('invalid number')
+        res.json('invalid number')
         return
       } else if (initUnit == 'invalid'){
-        res.send('invalid unit')
+        res.json('invalid unit')
         return
       }
       //if check passes respond w/resObject

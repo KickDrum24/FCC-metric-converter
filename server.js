@@ -14,7 +14,17 @@ const convertHandler = require('./controllers/convertHandler.js')
 
 let app = express();
 
-app.use(helmet()); //nosniff?-xssfilter
+// app.use(
+//   helmet({
+//     contentSecurityPolicy: false,
+//   })
+// );
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    scriptSrc: ["'self'", 'code.jquery.com']
+  }
+}));
 
 app.use('/public', express.static(process.cwd() + '/public'));
 
