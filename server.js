@@ -26,6 +26,10 @@ app.use(helmet.contentSecurityPolicy({
   }
 }));
 
+// You need to setup your Express server to serve static files. 
+// The line below facilitates serving static assets from a 'public' 
+// folder relative to where your script it.
+
 app.use('/public', express.static(process.cwd() + '/public'));
 
 app.use(cors({ origin: '*' })); //For FCC testing purposes only
