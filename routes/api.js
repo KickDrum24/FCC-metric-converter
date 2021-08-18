@@ -17,28 +17,24 @@ module.exports = (app) => {
       var returnUnit = convertHandler.getReturnUnit(initUnit);
       var toString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
       //validity check
-      if (initNum == 'invalid' && initUnit == 'invalid'){
+      if (initNum == 'invalid' && initUnit == 'invalid') {
         res.json('invalid number and unit')
         return
-      }else if (initNum == 'invalid'){
+      } else if (initNum == 'invalid') {
         res.json('invalid number')
         return
-      } else if (initUnit == 'invalid'){
+      } else if (initUnit == 'invalid') {
         res.json('invalid unit')
         return
       }
       //if check passes respond w/resObject
       let resObject = {}
-      resObject['initNum']=initNum
-      resObject['initUnit']=initUnit
-      resObject['returnNum']=returnNum
-      resObject['returnUnit']=returnUnit
-      resObject['string']=toString
+      resObject['initNum'] = initNum
+      resObject['initUnit'] = initUnit
+      resObject['returnNum'] = returnNum
+      resObject['returnUnit'] = returnUnit
+      resObject['string'] = toString
 
       res.json(resObject)
     });
-    // app.route('/api/convert')
-    // .get((req, res) => {
-    //   res.json(null)
-    // });
 };

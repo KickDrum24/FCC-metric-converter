@@ -14,11 +14,6 @@ const convertHandler = require('./controllers/convertHandler.js')
 
 let app = express();
 
-// app.use(
-//   helmet({
-//     contentSecurityPolicy: false,
-//   })
-// );
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],

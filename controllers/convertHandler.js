@@ -1,6 +1,6 @@
 
 module.exports = function (app) {
-  // function ConvertHandler() {
+  
   function isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
   }
@@ -9,13 +9,11 @@ module.exports = function (app) {
   let units = ['gal', 'L', 'lbs', 'kg', 'mi', 'km'];
   this.getNum = function (input) {
     let result;
-    console.log(input.match(inputRgx));
-    console.log("segmented input is ");
     result = input.match(inputRgx)[0];
 
     if (units.includes(result)) { result = 1 }
     else if (result.slice(1).includes('/')) {
-      if ((result.slice(1).match(/[/]/g)).length > 1){
+      if ((result.slice(1).match(/[/]/g)).length > 1) {
         return 'invalid';
       }
       var splt = result.split('/');
@@ -27,16 +25,15 @@ module.exports = function (app) {
 
   this.getUnit = function (input) {
     let result;
-    console.log(input)
     if (units.includes(input)) {
       result = input;
     } else {
       result = input.match(inputRgx)[1]
     }
-    if (result == 'l' || result == 'L'){
+    if (result == 'l' || result == 'L') {
       result = 'L';
-    }else{
-      result=result.toLowerCase();
+    } else {
+      result = result.toLowerCase();
     }
     return (units.includes(result)) ? result : 'invalid';
   };
@@ -50,12 +47,6 @@ module.exports = function (app) {
     } else {
       result = units[dex - 1];
     }
-    return result;
-  };
-
-  this.spellOutUnit = function (unit) {
-    let result;
-
     return result;
   };
 
@@ -104,5 +95,4 @@ module.exports = function (app) {
   };
 
 }
-// }
-// module.exports = ConvertHandler;
+
