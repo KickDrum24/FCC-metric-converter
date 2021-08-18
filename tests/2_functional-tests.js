@@ -19,7 +19,7 @@ suite('Functional Tests', function () {
     done();
   });
   // Convert a valid input such as 10L: GET request to /api/convert.
-  test('Convert kg (no number)', function (done) {
+  test('Convert a valid input', function (done) {
     chai.request(server)
       .get('/api/convert')
       .query({ input: '10L' })

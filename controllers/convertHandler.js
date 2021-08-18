@@ -33,6 +33,11 @@ module.exports = function (app) {
     } else {
       result = input.match(inputRgx)[1]
     }
+    if (result == 'l' || result == 'L'){
+      result = 'L';
+    }else{
+      result=result.toLowerCase();
+    }
     return (units.includes(result)) ? result : 'invalid';
   };
 
